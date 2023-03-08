@@ -8,9 +8,8 @@ import { format } from "date-fns";
 import DatePicker from "../DayPicker";
 import InputPresent from "../InputPresentation";
 import moment from "moment";
+import { HUMAN_FORMAT, SYSTEM_FORMAT } from "@/common/constants";
 
-const HUMAN_FORMAT = "MM/dd/yyyy"
-const SYSTEM_FORMAT = "yyyy/MM/DD"
 interface Props {
   defaultValue?: string;
   errorMessage?: string;
