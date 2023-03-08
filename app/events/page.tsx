@@ -3,8 +3,8 @@ import { use } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const fetchSomething = async () => {
-  return new Promise((resolve, reject) => {
+const fetchSomething = async (): Promise<number> => {
+  return new Promise<number>((resolve, reject) => {
     return setTimeout(() => {
       console.log("hi");
       resolve(1);
