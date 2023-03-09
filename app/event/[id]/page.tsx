@@ -38,20 +38,20 @@ const Home = async ({ params }: NextProps) => {
         <div className="w-full mt-7 lg:hidden sm:block">
           <BannerPreview link={data.banner} />
         </div>
-        <div className="w-9/12 mt-7 grid grid-cols-2 gap-6">
+        <div className="lg:w-9/12 w-full mt-7 grid grid-cols-2 gap-6">
           <DatePreview value={data.startAt} />
 
           <TimePreview value={data.startAt} />
         </div>
 
-        <div className="w-9/12 mt-7">
+        <div className="lg:w-9/12 w-full mt-7">
           <VenuePreview value={data.venue} />
         </div>
-        <div className="w-7/12 mt-4 grid grid-cols-2 gap-6">
+        <div className="lg:w-7/12 w-full mt-4 grid grid-cols-2 gap-6">
           <CapacityPreview value={data.capacity} />
           <CostPreview value={data.price} />
         </div>
-        <div className="w-full mt-20">
+        <div className="w-full lg:mt-20 mt-8">
           <TextAreaPreview value={data.description} />
         </div>
       </div>
