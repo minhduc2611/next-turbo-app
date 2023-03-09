@@ -8,14 +8,14 @@ interface Props {
 const TextAreaPreview: React.FC<Props> = ({ value = "" }) => {
   return (
     <div className="font-normal text-lg leading-7 mt-1 w-full focus-visible:outline-none resize-none rounded-[8px] py-3 focus-visible:shadow-none text-light-black">
-      <div
+      <p
         dangerouslySetInnerHTML={{
           __html: `
-      <div style="white-space: pre-line">
+      <p style="white-space: pre-line">
       ${value}
-      </div>`,
+      </p>`,
         }}
-      />
+      ></p>
     </div>
   );
 };
