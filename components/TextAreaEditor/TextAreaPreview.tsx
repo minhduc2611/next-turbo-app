@@ -22,7 +22,7 @@ const TextAreaPreview: React.FC<Props> = ({ value = "" }) => {
       }
     },
   };
-  const final = value.replaceAll("\n", "<br />");
+  const final = value.replaceAll("\\n", "<br />");
   // const result = parse(final, options)
 
   return (
