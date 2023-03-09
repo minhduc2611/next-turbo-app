@@ -22,11 +22,12 @@ const TextAreaPreview: React.FC<Props> = ({ value = "" }) => {
       }
     },
   };
+  const final = value.replaceAll('\n', '<br />')
+  const result = parse(final, options)
+  
   return (
     <div className="font-normal text-lg leading-7 mt-1 w-full focus-visible:outline-none resize-none rounded-[8px] py-3 focus-visible:shadow-none text-light-black">
-      <span style={{ whiteSpace: "pre-line" }}>
-        {parse(`${value}`,options)}
-      </span>
+      <span style={{ whiteSpace: "pre-line" }}>{result}</span>
     </div>
   );
 };
