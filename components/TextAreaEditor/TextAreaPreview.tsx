@@ -9,9 +9,9 @@ interface Props {
 const TextAreaPreview: React.FC<Props> = ({ value = "" }) => {
   return (
     <div className="font-normal text-lg leading-7 mt-1 w-full focus-visible:outline-none resize-none rounded-[8px] py-3 focus-visible:shadow-none text-light-black">
-      {parse(`<p style="white-space: pre-line">
+      {parse(`<span style="white-space: pre-line">
       ${value}
-      </p>`)}
+      </span>`)}
     </div>
   );
 };
