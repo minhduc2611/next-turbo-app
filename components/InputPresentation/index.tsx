@@ -44,8 +44,6 @@ const InputPresent: React.FC<Props> = ({
   iconWidth = DEFAULT_HEIGHT_WIDTH,
   handleChange = () => {},
 }) => {
-  const [valueState, setValue] = React.useState<string>("");
-
   let renderIcon: JSX.Element | null = null;
   switch (iconName) {
     case IconTypes.calendar:
@@ -70,16 +68,6 @@ const InputPresent: React.FC<Props> = ({
     default:
       break;
   }
-  const localHandleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "") {
-      setValue(e.target.value);
-      handleChange(undefined);
-    } else {
-      setValue(e.target.value);
-      handleChange(e.target.value);
-    }
-  }
-
   return (
     <div title="InputPresent" className={`flex w-full relative ${className}`}>
       <div className={`flex w-[${iconWidth}px]`}>
@@ -93,17 +81,7 @@ const InputPresent: React.FC<Props> = ({
         } flex`}
       >
         {editable ? (
-          <>
-            <input
-              placeholder={placeholder}
-              value={valueState}
-              onChange={localHandleChange}
-              onBlur={localHandleChange}
-              min={0}
-              className="placeholder:text-light-black placeholder:font-semibold placeholder:text-base placeholder:leading-10 focus-visible:shadow-none focus-visible:outline-none pl-1 w-full self-center text-base font-semibold text-light-black"
-              type={type}
-            />
-          </>
+          <Editable handleChange={handleChange} type={type} placeholder={placeholder} />
         ) : (
           <span
             className={`${
@@ -117,6 +95,39 @@ const InputPresent: React.FC<Props> = ({
         )}
       </div>
     </div>
+  );
+};
+
+const Editable = ({
+  handleChange = () => {},
+  placeholder = "",
+  type = "text",
+}: {
+  type?: React.HTMLInputTypeAttribute | undefined;
+  placeholder?: string;
+  handleChange?: (text: any) => void;
+}) => {
+  const [valueState, setValue] = React.useState<string>("");
+
+  const localHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === "") {
+      setValue(e.target.value);
+      handleChange(undefined);
+    } else {
+      setValue(e.target.value);
+      handleChange(e.target.value);
+    }
+  };
+  return (
+    <input
+      placeholder={placeholder}
+      value={valueState}
+      onChange={localHandleChange}
+      onBlur={localHandleChange}
+      min={0}
+      className="placeholder:text-light-black placeholder:font-semibold placeholder:text-base placeholder:leading-10 focus-visible:shadow-none focus-visible:outline-none pl-1 w-full self-center text-base font-semibold text-light-black"
+      type={type}
+    />
   );
 };
 

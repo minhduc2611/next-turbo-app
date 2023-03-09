@@ -12,6 +12,8 @@ import TitleEditor from "@/components/TitleEditor";
 import VenueEditor from "@/components/VenueEditor";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 import {
   EventCreatorData,
@@ -33,6 +35,8 @@ export default function Home() {
     shouldUseNativeValidation: false,
     delayError: undefined,
   });
+  const router = useRouter();
+
   const { isDirty, isValid, errors } = formState;
   console.log({ isDirty, isValid, errors });
 
@@ -212,7 +216,7 @@ export default function Home() {
         )}
 
         <button
-          disabled={!isDirty || Object.entries(errors).length > 0}
+          disabled={!isValid}
           className="mt-6 text-primary-purple bg-secondary-yellow w-full h-12 rounded-lg my-5 disabled:bg-gray-400 disabled:text-white disabled:cursor-not-allowed"
           type="button"
           onClick={() => {
@@ -221,10 +225,22 @@ export default function Home() {
               startAt: `${getValues("date")}T${getValues("time")}`,
             };
             console.log("data", data);
-            submitForm(data).then((res) => {
-              console.log('res', res);
-              
-            });
+            toast.promise(
+              submitForm(data)
+                .then((res) => {
+                  console.log("res", res.data.id);
+                  setTimeout(() => {
+                    router.push("/event/" + res.data.id);
+                  }, 2000);
+                })
+                .catch((e) => {
+                  toast(e.message);
+                }),
+              {
+                pending: "Creating new event",
+                success: "Event is created, navigating to event ...",
+              }
+            );
           }}
         >
           CREATE SOCIAL

@@ -1,6 +1,8 @@
 "use client";
+import { prototype } from "events";
 // "use server";
 import React, { useRef, useState } from "react";
+import Preview from "./TitlePreview";
 import useAutosizeTextArea from "./useAutosizeTextArea";
 
 interface Props {
@@ -9,11 +11,11 @@ interface Props {
   handleChange: (text: string) => void;
 }
 
-const TitleEditor: React.FC<Props> = ({
+const TitleEditor = ({
   defaultValue = "",
   errorMessage = "",
   handleChange = (text: string) => {},
-}) => {
+}: Props) => {
   const [value, setValue] = useState(defaultValue);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
@@ -26,7 +28,6 @@ const TitleEditor: React.FC<Props> = ({
   useAutosizeTextArea(textAreaRef.current, divRef.current, value);
 
   return (
-    <>
       <div
         ref={divRef}
         className={`p-3 hover:cursor-pointer bg-primary-purple w-[350px]`}
@@ -40,8 +41,8 @@ const TitleEditor: React.FC<Props> = ({
           className="hover:cursor-pointer focus-visible:cursor-auto font-bold align-middle w-full resize-none text-5xl text-white bg-inherit focus-visible:border-none focus-visible:outline-none focus-visible:shadow-none"
         />
       </div>
-      <p className="text-red-600">{errorMessage}</p>
-    </>
   );
 };
+
+
 export default TitleEditor;

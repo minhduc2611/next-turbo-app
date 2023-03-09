@@ -24,7 +24,7 @@ const DateEditor: React.FC<Props> = ({
   const [selected, setSelected] = React.useState<Date>();
   const [openPopover, setOpenPopover] = React.useState(false);
   const finalValue = selected
-    ? format(selected, HUMAN_FORMAT)
+    ? moment(selected).format(HUMAN_FORMAT)
     : "Date";
   return (
     <Popover

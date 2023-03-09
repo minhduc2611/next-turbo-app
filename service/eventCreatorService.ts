@@ -1,4 +1,6 @@
-import { EventCreatorData, eventCreatorDataDefaultValue } from "@/common/types";
+import {
+  EventCreatorData, EventCreatorDataState
+} from "@/common/types";
 import axios from "axios";
 import moment from "moment";
 import * as Yup from "yup";
@@ -41,6 +43,19 @@ export const validationSchema = Yup.object().shape({
   privacy: Yup.string().required("Privacy are required."),
 });
 
+const TemporailBypassCorsBaseURL = "https://cors-anywhere.herokuapp.com/";
+export const submitForm = (data: EventCreatorData) =>
+  axios.post<EventCreatorDataState>(
+    TemporailBypassCorsBaseURL +
+      "https://api.supermomos-dev.com/interview/social",
+    { ...data },
+    { headers: { "Content-Type": "application/json" } }
+  );
+export const getEvent = (eventId: string) => {
+  const url =
+    "https://api.supermomos-dev.com/interview/social/" +
+    eventId;
+  console.log("url", url);
 
-export const submitForm = (data : EventCreatorData) => axios.post("https://api.supermomos-dev.com/interview/social",
-{ ...data }, {headers: { Origin: `some` }})
+  return axios.get<EventCreatorDataState>(url);
+};

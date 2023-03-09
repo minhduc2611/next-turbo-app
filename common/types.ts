@@ -1,14 +1,15 @@
 export type EventCreatorDataState = EventCreatorData & {
   date: string;
   time: string;
+  id?: string
 };
 
 export type EventCreatorData = {
   title: string;
   startAt: string;
   venue: string;
-  capacity: Number;
-  price?: Number;
+  capacity: number;
+  price?: number;
   description: string;
   banner: string;
   tags: Array<string>;
