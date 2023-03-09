@@ -68,7 +68,7 @@ const BannerEditor: React.FC<Props> = ({
       >
         <div className="p-4 font-bold leading-5 text-xl">Choose a banner</div>
         <DialogBody divider>
-          <div className="grid lg:grid-cols-6 lg:gap-4 sm:grid-cols-2 sm:gap-3">
+          <div className="grid lg:grid-cols-6 lg:gap-4 grid-cols-2 gap-3">
             {IMAGES.map((link, indx) => {
               const isSelected = link === selected;
               return (

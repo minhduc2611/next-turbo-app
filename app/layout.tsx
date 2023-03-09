@@ -23,7 +23,7 @@ export default function RootLayout({
           background: "linear-gradient(138.11deg, #FEF452 0%, #942F70 121.92%)",
         }}
       >
-        <div className="mx-28">
+        <div className="mx-8 lg:mx-28">
           <Header />
           {children}
           <Toast />

@@ -43,10 +43,10 @@ export default function Home() {
   return (
     <main
       id="home-container"
-      className="pt-32 w-full grid lg:grid-cols-2 lg:gap-1 sm:grid-cols-1 sm:gap-0"
+      className="pt-32 w-full grid lg:grid-cols-2 lg:gap-1 grid-cols-1 gap-0"
     >
       <div id="form-container">
-        <div className="lg:w-9/12 sm:w-full mt-10">
+        <div className="lg:w-9/12 w-full mt-10">
           <Controller
             name="title"
             control={control}
@@ -62,7 +62,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="lg:w-9/12 sm:w-full mt-7 grid grid-cols-2 gap-6">
+        <div className="lg:w-9/12 w-full mt-7 grid grid-cols-2 gap-6">
           <Controller
             name="date"
             control={control}
@@ -90,7 +90,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="lg:w-9/12 sm:w-full mt-7 lg:hidden sm:block">
+        <div className="lg:w-9/12 w-full mt-7 lg:hidden block">
           <Controller
             name="banner"
             control={control}
@@ -108,7 +108,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="lg:w-9/12 sm:w-full mt-7">
+        <div className="lg:w-9/12 w-full mt-7">
           <Controller
             name="venue"
             control={control}
@@ -123,7 +123,7 @@ export default function Home() {
             )}
           />
         </div>
-        <div className="lg:w-7/12 sm:w-full mt-4 grid grid-cols-2 gap-6">
+        <div className="lg:w-7/12 w-full mt-4 grid grid-cols-2 gap-6">
           <Controller
             name="capacity"
             control={control}
@@ -151,7 +151,7 @@ export default function Home() {
             )}
           />
         </div>
-        <div className="w-full lg:mt-40 sm:mt-8">
+        <div className="w-full lg:mt-40 mt-8">
           <Controller
             name="description"
             control={control}
@@ -267,7 +267,7 @@ export default function Home() {
           CREATE SOCIAL
         </button>
       </div>
-      <div id="image-container" className="w-[100%] lg:block sm:hidden">
+      <div id="image-container" className="w-[100%] lg:block hidden">
         <Controller
           name="banner"
           control={control}

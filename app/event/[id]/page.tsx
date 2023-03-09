@@ -29,13 +29,13 @@ const Home = async ({ params }: NextProps) => {
   return (
     <main
       id="home-container"
-      className="pt-32 w-full grid lg:grid-cols-2 lg:gap-1 sm:grid-cols-1 sm:gap-0"
+      className="pt-32 w-full grid lg:grid-cols-2 lg:gap-1 grid-cols-1 gap-0"
     >
       <div id="form-container" className="z-10">
         <div className="w-full mt-10">
           <TitlePreview value={data.title} />
         </div>
-        <div className="w-full mt-7 lg:hidden sm:block">
+        <div className="w-full mt-7 lg:hidden block">
           <BannerPreview link={data.banner} />
         </div>
         <div className="lg:w-9/12 w-full mt-7 grid grid-cols-2 gap-6">
@@ -56,7 +56,7 @@ const Home = async ({ params }: NextProps) => {
         </div>
       </div>
 
-      <div id="image-container" className="w-[100%] lg:block sm:hidden">
+      <div id="image-container" className="w-[100%] lg:block hidden">
         <BannerPreview link={data.banner} />
       </div>
     </main>
