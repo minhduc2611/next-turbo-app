@@ -7,8 +7,12 @@ interface Props {
 }
 const BannerPreview: React.FC<Props> = ({ link }) => {
   return (
-    <div className="w-full flex flex-row-reverse">
-      <div className="absolute w-[50vw] overflow-visible h-[460px] rounded-tr-[64px] rounded-bl-[64px]  bg-[#F2F2F2] bg-opacity-10 flex">
+    <div className="w-full flex flex-row-reverse h-[300px] lg:h-460px">
+      <div className={`
+          relative w-full h-[300px] sm:rounded-[30px]   
+          lg:absolute lg:w-[50vw] lg:h-[460px] lg:rounded-tr-[64px] lg:rounded-bl-[64px] lg:overflow-visible 
+          bg-[#F2F2F2] flex
+        `}>
         <Image
           src={link}
           className={`h-full w-full rounded-tr-[64px] rounded-bl-[64px]`}

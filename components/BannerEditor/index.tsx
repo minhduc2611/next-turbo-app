@@ -5,8 +5,9 @@ import InputPresent from "../InputPresentation";
 import { IMAGES } from "@/common/constants";
 import {
   Button,
-  Dialog, DialogBody,
-  DialogFooter
+  Dialog,
+  DialogBody,
+  DialogFooter,
 } from "@material-tailwind/react";
 interface Props {
   defaultChecked?: boolean;
@@ -26,7 +27,11 @@ const BannerEditor: React.FC<Props> = ({
           onClick={() => {
             setOpen(true);
           }}
-          className=" cursor-pointer absolute w-[50vw] overflow-visible h-[460px] rounded-tr-[64px] rounded-bl-[64px] border-dashed border-[1px] border-gray-[6] bg-[#F2F2F2] bg-opacity-10 flex"
+          className={`
+          relative w-full h-[300px]   
+          lg:absolute lg:w-[50vw] lg:h-[460px] lg:rounded-tr-[64px] lg:rounded-bl-[64px] lg:overflow-visible 
+          bg-[#F2F2F2] flex cursor-pointer border-dashed border-[1px] border-gray-[6] bg-opacity-10
+        `}
         >
           {selected ? (
             <Image
@@ -63,7 +68,7 @@ const BannerEditor: React.FC<Props> = ({
       >
         <div className="p-4 font-bold leading-5 text-xl">Choose a banner</div>
         <DialogBody divider>
-          <div className="grid grid-cols-6 gap-4">
+          <div className="grid lg:grid-cols-6 lg:gap-4 sm:grid-cols-2 sm:gap-3">
             {IMAGES.map((link, indx) => {
               const isSelected = link === selected;
               return (
