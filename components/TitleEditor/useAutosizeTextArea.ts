@@ -9,7 +9,6 @@ const useAutosizeTextArea = (
   useEffect(() => {
     if (textAreaRef && divRef) {
       const scrollHeight = textAreaRef.scrollHeight;
-
       if (scrollHeight < 250) {
         // We need to reset the height momentarily to get the correct scrollHeight for the textarea
         textAreaRef.style.height = "0px";
@@ -21,12 +20,9 @@ const useAutosizeTextArea = (
       }
 
       if (value && value.length > 13) {
-        console.log(13);
-
         textAreaRef.classList.add("w-full");
         divRef.classList.add("w-full");
       } else {
-        console.log(10);
         divRef.classList.remove("w-full");
         textAreaRef.style.height = "50px";
       }

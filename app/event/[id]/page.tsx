@@ -10,9 +10,7 @@ import TimePreview from "@/components/TimeEditor/TimePreview";
 import TitlePreview from "@/components/TitleEditor/TitlePreview";
 import VenuePreview from "@/components/VenueEditor/VenuePreview";
 
-const fetchSomething = async (id: string) => {
-  console.log("fetchSomething", id);
-
+const getEventById = async (id: string) => {
   return getEvent(id).then((res) => res.data);
 };
 
@@ -20,8 +18,7 @@ interface NextProps {
   params: { id: string };
 }
 const Home = async ({ params }: NextProps) => {
-  const data: EventCreatorDataState = await fetchSomething(params?.id);
-  console.log(data);
+  const data: EventCreatorDataState = await getEventById(params?.id);
   if (data === null) {
     return <>Something went wrong, cannot get event from id: {params?.id}</>;
   }
