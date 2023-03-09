@@ -46,7 +46,7 @@ const Home = async ({ params }: NextProps) => {
           <CapacityPreview value={data.capacity} />
           <CostPreview value={data.price} />
         </div>
-        <div className="w-full mt-8">
+        <div className="w-full mt-20">
           <TextAreaPreview value={data.description} />
         </div>
       </div>
