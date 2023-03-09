@@ -11,7 +11,7 @@ const CapacityPreview: React.FC<Props> = ({ value = "" }) => {
       <InputPresent
         type="number"
         classNameDiv="bg-transparent ml-2"
-        classNameText="self-center justify-center text-dark-blue font-semibold text-xl leading-5"
+        classNameText="self-center justify-center font-semibold text-base text-light-black leading-5"
         iconWidth={21}
         iconName="people-group"
         value={value ? `${value}` : ""}

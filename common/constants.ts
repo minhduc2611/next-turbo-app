@@ -1,7 +1,9 @@
 export const DEFAULT_HEIGHT_WIDTH = 34;
 export const HUMAN_FORMAT = "MM/DD/yyyy"
+export const HUMAN_FORMAT2 = "MMMM DD, ddd"
 export const SYSTEM_FORMAT = "yyyy-MM-DD"
 export const FORMAT_TIME = "HH:mm:ss";
+export const FORMAT_TIME2 = "HH:mm A";
 export const FORMAT_TIME_WITH_ZONE = "HH:mm:ssZ";
 export const START_AT_FORMAT = `${SYSTEM_FORMAT}T${FORMAT_TIME_WITH_ZONE}`
 

@@ -12,7 +12,7 @@ const VenuePreview: React.FC<Props> = ({
     <div className="w-full">
       <InputPresent
         classNameDiv="bg-transparent ml-2"
-        classNameText="self-center justify-center text-dark-blue font-semibold text-xl leading-5"
+        classNameText="self-center justify-center font-semibold text-base text-light-black leading-5"
         iconName="location"
         iconWidth={21}
         value={value ? value : ""}

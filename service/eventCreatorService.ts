@@ -1,5 +1,7 @@
 import {
-  EventCreatorData, EventCreatorDataState
+  EventCreatorData,
+  eventCreatorDataDefaultValue,
+  EventCreatorDataState,
 } from "@/common/types";
 import axios from "axios";
 import moment from "moment";
@@ -43,7 +45,7 @@ export const validationSchema = Yup.object().shape({
   privacy: Yup.string().required("Privacy are required."),
 });
 
-const TemporailBypassCorsBaseURL = "https://cors-anywhere.herokuapp.com/";
+const TemporailBypassCorsBaseURL =  process.env.NEXT_PUBLIC_TEM_BASE_URL || "";
 export const submitForm = (data: EventCreatorData) =>
   axios.post<EventCreatorDataState>(
     TemporailBypassCorsBaseURL +
@@ -55,7 +57,5 @@ export const getEvent = (eventId: string) => {
   const url =
     "https://api.supermomos-dev.com/interview/social/" +
     eventId;
-  console.log("url", url);
-
   return axios.get<EventCreatorDataState>(url);
 };

@@ -7,8 +7,15 @@ interface Props {
 
 const TextAreaPreview: React.FC<Props> = ({ value = "" }) => {
   return (
-    <div className="mt-1 w-full focus-visible:outline-none resize-none rounded-[8px] h-52 py-3 px-[14px] focus-visible:shadow-none">
-      {value}
+    <div className="font-normal text-lg leading-7 mt-1 w-full focus-visible:outline-none resize-none rounded-[8px] py-3 focus-visible:shadow-none text-light-black">
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `
+      <span style="white-space: pre-line">
+      ${value}
+      </span>`,
+        }}
+      />
     </div>
   );
 };

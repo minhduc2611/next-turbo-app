@@ -22,12 +22,14 @@ interface NextProps {
 const Home = async ({ params }: NextProps) => {
   const data: EventCreatorDataState = await fetchSomething(params?.id);
   console.log(data);
-  if (data === null)
+  if (data === null) {
     return <>Something went wrong, cannot get event from id: {params?.id}</>;
+  }
+
   return (
     <main id="home-container" className="pt-32 w-full grid grid-cols-2 gap-1">
-      <div id="form-container">
-        <div className="w-9/12 mt-10">
+      <div id="form-container" className="z-10">
+        <div className="w-full mt-10">
           <TitlePreview value={data.title} />
         </div>
 
@@ -44,7 +46,7 @@ const Home = async ({ params }: NextProps) => {
           <CapacityPreview value={data.capacity} />
           <CostPreview value={data.price} />
         </div>
-        <div className="w-full mt-40">
+        <div className="w-full mt-8">
           <TextAreaPreview value={data.description} />
         </div>
       </div>
