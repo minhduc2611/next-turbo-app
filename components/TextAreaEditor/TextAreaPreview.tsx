@@ -11,9 +11,9 @@ const TextAreaPreview: React.FC<Props> = ({ value = "" }) => {
       <div
         dangerouslySetInnerHTML={{
           __html: `
-      <span style="white-space: pre-line">
+      <div style="white-space: pre-line">
       ${value}
-      </span>`,
+      </div>`,
         }}
       />
     </div>
