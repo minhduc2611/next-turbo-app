@@ -232,7 +232,6 @@ export default function Home() {
               ...getValues(),
               startAt: `${getValues("date")}T${getValues("time")}`,
             };
-            ("data", data);
             toast.promise(
               submitForm(data)
                 .then((res) => {
