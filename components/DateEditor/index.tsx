@@ -11,14 +11,10 @@ import moment from "moment";
 import { HUMAN_FORMAT, SYSTEM_FORMAT } from "@/common/constants";
 
 interface Props {
-  defaultValue?: string;
-  errorMessage?: string;
   handleChange: (text: string) => void;
 }
 
 const DateEditor: React.FC<Props> = ({
-  defaultValue,
-  errorMessage="",
   handleChange = (text: string) => {},
 }) => {
   const [selected, setSelected] = React.useState<Date>();
@@ -31,7 +27,6 @@ const DateEditor: React.FC<Props> = ({
       placement="bottom-start"
       open={openPopover}
       handler={(v) => {
-        console.log('v', v);
         setOpenPopover(v);
         if (v == true) {
           handleChange(selected ? moment(selected).format(SYSTEM_FORMAT) : "")

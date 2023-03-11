@@ -38,7 +38,6 @@ export default function Home() {
   const router = useRouter();
 
   const { isDirty, isValid, errors } = formState;
-  console.log({ isDirty, isValid, errors });
 
   return (
     <main
@@ -54,7 +53,6 @@ export default function Home() {
               <TitleEditor
                 defaultValue={getValues("title")}
                 handleChange={(text) => {
-                  console.log("TitleEditor", text);
                   onChange(text);
                 }}
               />
@@ -69,7 +67,6 @@ export default function Home() {
             render={({ field: { onChange }, formState: { errors } }) => (
               <DateEditor
                 handleChange={(text) => {
-                  console.log("DateEditor", text);
                   onChange(text);
                 }}
               />
@@ -82,7 +79,6 @@ export default function Home() {
             render={({ field: { onChange }, formState: { errors } }) => (
               <TimeEditor
                 handleChange={(text) => {
-                  console.log("TimeEditor", text);
                   onChange(text);
                 }}
               />
@@ -100,7 +96,6 @@ export default function Home() {
             }) => (
               <BannerEditor
                 handleChange={(link) => {
-                  console.log("BannerEditor", { link, isValid, errors });
                   onChange(link);
                 }}
               />
@@ -116,7 +111,6 @@ export default function Home() {
               <VenueEditor
                 placeholder="Venue"
                 handleChange={(text) => {
-                  console.log("VenueEditor", text);
                   onChange(text);
                 }}
               />
@@ -131,7 +125,6 @@ export default function Home() {
               <CapacityEditor
                 placeholder="Max capacity"
                 handleChange={(text) => {
-                  console.log("CapacityEditor", text);
                   onChange(text);
                 }}
               />
@@ -144,7 +137,6 @@ export default function Home() {
               <CostEditor
                 placeholder="Cost per person"
                 handleChange={(text) => {
-                  console.log("CostEditor", text);
                   onChange(text);
                 }}
               />
@@ -160,7 +152,6 @@ export default function Home() {
                 title="Description"
                 placeholder="Description of your event.."
                 handleChange={(text) => {
-                  console.log("TextAreaEditor", text);
                   onChange(text);
                 }}
               />
@@ -183,7 +174,6 @@ export default function Home() {
               render={({ field: { onChange }, formState: { errors } }) => (
                 <AttendeeEditor
                   handleChange={(val) => {
-                    console.log("AttendeeEditor", val);
                     onChange(val);
                   }}
                 />
@@ -197,7 +187,6 @@ export default function Home() {
               render={({ field: { onChange }, formState: { errors } }) => (
                 <PrivacyEditor
                   handleChange={(text) => {
-                    console.log("PrivacyEditor", text);
                     onChange(text);
                   }}
                 />
@@ -211,7 +200,6 @@ export default function Home() {
               render={({ field: { onChange }, formState: { errors } }) => (
                 <TagEditor
                   handleChange={(value) => {
-                    console.log("TagEditor", value);
                     onChange(value.list);
                   }}
                 />
@@ -226,7 +214,6 @@ export default function Home() {
             className="mt-6 w-full bg-white rounded-[8px] min-h-[50px] p-2"
           >
             {Object.entries(errors).map(([k, v], indx) => {
-              console.log(k, v.message, indx);
               return (
                 <p key={indx} className="text-red-600">
                   * {v.message}
@@ -245,11 +232,10 @@ export default function Home() {
               ...getValues(),
               startAt: `${getValues("date")}T${getValues("time")}`,
             };
-            console.log("data", data);
+            ("data", data);
             toast.promise(
               submitForm(data)
                 .then((res) => {
-                  console.log("res", res.data.id);
                   setTimeout(() => {
                     router.push("/event/" + res.data.id);
                   }, 2000);
@@ -274,7 +260,6 @@ export default function Home() {
           render={({ field: { onChange }, formState: { errors, isValid } }) => (
             <BannerEditor
               handleChange={(link) => {
-                console.log("BannerEditor", { link, isValid, errors });
                 onChange(link);
               }}
             />

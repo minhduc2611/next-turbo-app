@@ -8,8 +8,6 @@ interface Props {
 }
 
 const DatePreview: React.FC<Props> = ({ value }) => {
-  console.log("value", value);
-
   const finalValue = value
     ? moment(value, START_AT_FORMAT).format(HUMAN_FORMAT2)
     : "Date";
